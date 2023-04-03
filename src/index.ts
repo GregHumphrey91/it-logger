@@ -3,6 +3,7 @@ import cookieParser from 'cookie-parser';
 import usersRouter from './routes/users';
 import indexRouter from './routes/index';
 import authRouter from './routes/auth';
+import connectMongoDB from '../db';
 
 const app: Express = express();
 
@@ -19,6 +20,7 @@ const port: number = 5000 || process.env.PORT;
 
 app.listen(port, () => {
   console.log(`App started on port ${port} `);
+  connectMongoDB();
 });
 
 export default app;
